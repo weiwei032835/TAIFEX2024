@@ -1,0 +1,215 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+*{font-family:'Noto Sans TC','微軟正黑體';}
+*,*::before,*::after{margin:0px; padding:0px; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;}
+.clearfix:after{content:''; display:block; height:0; clear:both; visibility:hidden;}
+hr{margin:20px 0px;}
+pre{border:2px solid deeppink; padding:5px; margin:2px; font-size:12px; background:rgba(255,255,255,0.7); clear:both; font-size:12px; font-family:'Source Code Pro'; tab-size:4; -moz-tab-size:4; white-space:pre-wrap;}
+pre strong{color:#CC0000;}
+pre em{font-style:normal; font-weight:bold; color:#006600;}
+
+html{ height:100%;
+    -webkit-text-size-adjust:none;/*修正旋轉後文字會變大*/
+    -webkit-overflow-scrolling:touch;/*修正ios滾動順暢*/
+    }
+
+body { font-size:16px; line-height:1.2; color:#000;}
+ul{ list-style:none;}
+/*預設連結狀態*/
+a:link, a:visited { color: #3067a0; text-decoration:none;}
+a:hover, a:active { color: #ffff5c;}
+/*圖片無框*/
+a img { border:none;}
+/*去除圖片底下空白*/
+img{ vertical-align: bottom;} 
+/*清除 clearfix*/
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden;}
+
+/*共用 ================================*/
+body{ position:relative; background:url(../images/bg.png) center center #ffef58; background-size:1200px; background-repeat:repeat; }
+a{text-decoration: none;}
+
+/*footer */
+.footer{ width:100%; height:7vh; position:fixed; bottom:0px; 
+display:flex; align-items:center; justify-content:center; padding:10px 10px; background-color:#7e55ff; z-index:1000; }
+.footer img{ max-width:225px; width:100%; height:auto;}
+
+/*.area_intro 簡介頁 ================================*/
+.area_intro{width: 414px;position:absolute; left:50%; top:45%; transform:translate(-50%, 10%); }
+/*大標*/
+.area_intro .title{ width:80%; max-width:400px; height:80px; position:absolute; left:50%; top:0%; transform:translate(-50%,-50%); background:url(../images/title01.png) no-repeat; background-size:100% auto; text-indent:100%; white-space:nowrap; overflow:hidden; }
+
+/*vision*/
+.area_intro .vision{width:350px; height:80px; margin: 0 auto 20px; background:url(../images/pic_1.png) no-repeat; background-size:100% auto;}
+
+/*story*/
+.area_intro .story{ width:300px; height:154px; margin: 0 auto;background:url(../images/story.png) no-repeat; background-size:90% auto;}
+
+/*btn_go*/
+.area_intro .btn_go{ display:block; width:414px; height:265px; margin:0 auto; background:url(../images/btn_go.png) no-repeat; background-size:100% auto; text-indent:100%; white-space:nowrap; overflow:hidden;}
+
+
+/*小於 1200px高度*/
+@media (max-height:1000px){ 
+    /*.area_intro 簡介頁*/
+    .area_intro{ max-height:44vh; transform:translate(-50%,20%); }
+    .area_intro .vision{ height:250px; }
+    .area_intro .btn_go{ width:350px; height:225px; }
+}
+
+
+/*小於 414px寬度*/
+@media only screen and (max-width:414px){
+    /*.area_intro 簡介頁*/
+    .area_intro{ width:80%; top:46%; }
+    .area_intro .title{width: 350px;margin-top: 10px;}
+    .area_intro .vision{ width: 80%;height: 185px; }
+    .area_intro .btn_go{ width:250px; height:160px; }
+}
+
+/*小於 375px寬度*/
+@media only screen and (max-width:375px){
+    /*.area_intro 簡介頁*/
+    .area_intro .title{width: 300px;}
+    .area_intro .vision{ width: 80%;height: 170px;}
+}
+
+/*問題頁 .area_question ================================*/
+/*問答*/
+.area_question{ margin-top: 20px; position:absolute; left:50%; top:7%; transform:translate(-50%, 0%); }
+/*大標*/
+.area_question .title{width:260px; height:80px; margin: 0 auto; background:url(../images/title02.png) no-repeat; background-size:100% auto; text-indent:100%; white-space:nowrap; overflow:hidden;}
+/*主視覺*/
+.area_question .vision{width:350px; height:400px; position: relative; background:url(../images/pic_2.png) no-repeat; background-size:100% auto;}
+.area_question .vision::after{ content:""; display:block; width:65px; height:65px; background-image:url('../images/btn_2.png'); background-size:contain; background-repeat:no-repeat; position:absolute; top:52%; right:-10px;transform:translate(-50%,0%);}
+
+/*h2.qa_title 題目*/
+.area_question .step{display: none;}/*初始隱藏*/
+.area_question h2.qa_title{ display:block; width:250px; padding:0 10px 0 10px; font-size:16px; font-weight:600; position:absolute; top:68%; left:50%; transform:translate(-50%,0%); color:#ffffff; letter-spacing:2px;}
+/*題目按鈕樣式*/
+.area_question .step button{ width:290px; height:80px; margin:0 auto 20px; padding:30px; position:relative; font-size:18px; font-weight:700; text-align:left; color:#7e55ff; display:flex; justify-content:flex-start; align-items:center; background-image:url("../images/options.png"); background-size:cover; background-position:center; cursor:pointer; border:none; opacity: 0; }
+.area_question .step button:hover{color: #ffa26e;}
+/*對 錯圖標*/
+.area_question .step button i{display:none;}
+/*A B 選項*/
+.area_question .step button span{ flex:0 0 30px; font-size:30px; font-weight:700; vertical-align:top; }
+/*錯誤 icon*/
+.area_question .step button i.fa-circle-xmark{ font-size:26px; position:absolute; right: 20px;bottom: 25px; color:#CC0000; background-color:#ffffff; }
+/*正確 icon*/
+.area_question .step button i.fa-solid.fa-circle-check{ font-size:26px; position:absolute; right:20px; bottom:25px; padding:2px; color:#146e00; }
+/*.step_result 三選一抽籤 */
+.area_question .step_result .vision{width:440px;height: 280px; background:url(../images/pic_3.png) no-repeat;background-size:100% auto;top:19%;}
+/*取消手指icon*/
+.area_question .step_result .vision::after{ content: none;}
+
+/*三選一 內文*/
+.area_question .step_result h2.qa_title{width: 270px; top:25%;transform: translate(-60%, 10%);letter-spacing: 1px;line-height: 1.5;}
+/*A B C 選項*/
+.area_question .step_result .ans_list{display:flex; flex-wrap: nowrap ;align-items:center; bottom: 16%; padding: 5px;}
+.area_question .step_result .ans_list button{ width:125px;height: 300px; margin:0 10px;background-size: contain;background-repeat: no-repeat;}
+
+.area_question .step_result .ans_list button:hover {box-shadow: 4px 4px 6px #7e55ff;}
+
+/*卡牌背景圖片*/
+.area_question .step_result .ans_list button:nth-child(1){background-image:url("../images/a.png");}
+.area_question .step_result .ans_list button:nth-child(2){background-image:url("../images/b.png");}
+.area_question .step_result .ans_list button:nth-child(3){background-image:url("../images/c.png");}
+
+
+	
+/*小於 414px寬度*/
+@media only screen and (max-width:414px){
+	/*大標*/
+	.area_question .step .title{position: absolute; top: 0%;left: 50%; transform:translate(-50%, 0%);} 
+	.area_question h2.qa_title{width: 210px;padding: 0 5px 0 5px;top: 60%;}
+	.area_question .ans_list{transform:translate(0%,16%);}
+	/*問答 主視覺*/
+	.area_question .vision{width:300px; height:320px;top: 0%;left: 50%; transform:translate(-50%, 15%); background:url(../images/pic_2s.png) no-repeat;background-size:100% auto; } 
+	.area_question .vision::after{width:65px; height:65px;top: 42%;right: -40px;}
+	/*.step_result 三選一抽籤 =======================*/
+	/*三選一 主視覺*/
+	.area_question .step_result .vision{ width:375px; height:255px;transform: translate(-50%, 31%);
+	background:url(../images/pic_3s.png) no-repeat; background-size:100% auto; }
+	.area_question .step_result h2.qa_title{ width: 250px; transform: translate(-55%, 10%); font-size: 15px;}
+	
+	/*選項*/
+	.area_question .step_result .ans_list{ position:absolute; left:50%;transform:translate(-50%,130%);}
+	.area_question .step_result .ans_list button{width: 100px;height: 240px;}
+}
+
+
+/*結果頁 .area_intro ================================*/
+.area_result{ margin-top:20px; position:absolute; left:50%; top:7%; transform:translate(-50%,0%);text-align: center; }
+
+/*大標*/
+.area_result .title{width:260px; height:80px; margin: 0 auto; background:url(../images/title02.png) no-repeat; background-size:100% auto; text-indent:100%; white-space:nowrap; overflow:hidden;}
+
+/*vision 主視覺*/
+/*.ans_1*/
+.area_result.ans_1 .vision{	background:url(../images/ans_a1.png) no-repeat;width:320px; height:280px;margin: 0 auto 10px; background-size:100% auto;}
+/*.ans_2*/
+.area_result.ans_2 .vision{	background:url(../images/ans_a3.png) no-repeat;width:320px; height:280px;margin: 0 auto 10px; background-size:100% auto;}
+/*.ans_3*/
+.area_result.ans_3 .vision{	background:url(../images/ans_a5.png) no-repeat;width:320px; height:280px;margin: 0 auto 10px; background-size:100% auto;}
+
+/*story 內文*/
+/*.ans_1*/
+.area_result.ans_1 .story{width:330px; height:140px;margin: 0 auto 10px;
+background:url(../images/story_a.png) no-repeat; background-size:100% auto; }
+/*.ans_2*/
+.area_result.ans_2 .story{width:330px; height:140px;margin: 0 auto 10px;
+background:url(../images/story_b.png) no-repeat; background-size:100% auto;}
+/*.ans_3*/
+.area_result.ans_3 .story{width:330px; height:140px;margin: 0 auto 10px;
+background:url(../images/story_c.png) no-repeat; background-size:100% auto; }
+
+
+/*title2 紫色標語*/
+/*.ans_1*/
+.area_result.ans_1 .title2{width:295px; height:120px; margin: 0 auto 10px; background:url(../images/ans_a2.png) no-repeat; background-size:100% auto; text-indent:100%; white-space:nowrap; overflow:hidden;}
+/*.ans_2*/
+.area_result.ans_2 .title2{width:295px; height:120px; margin: 0 auto 10px; background:url(../images/ans_a4.png) no-repeat; background-size:100% auto; text-indent:100%; white-space:nowrap; overflow:hidden;}
+/*.ans_3*/
+.area_result.ans_3 .title2{width:295px; height:120px; margin: 0 auto 10px; background:url(../images/ans_a6.png) no-repeat; background-size:100% auto; text-indent:100%; white-space:nowrap; overflow:hidden;}
+
+
+/*QRcode*/
+.area_result .QRcode{display: inline-block;margin-bottom: 10px; }
+.area_result .QRcode img{width: 100px;height: 100px;}
+
+/*分享結果 再玩一次 選項*/
+.area_result .ans_btn{ width:100%; max-width:414px; display:flex; justify-content:space-between; justify-content:space-evenly;}
+
+/*.ans_btn 按鈕*/
+.area_result .ans_btn a{ display: block; width:150px; height:50px; line-height: 50px; position: relative; font-size:20px; text-align: center; color:#fff; font-weight:500; cursor:pointer;margin-right: 10px; background-color:#ffa26e; border:none; }
+.area_result .ans_btn a:hover{background-color:#7e55ff;}
+.area_result .ans_btn a:last-child{ margin-right:0; }
+
+/*.ans_btn 分享結果 手指插圖*/
+.area_result .ans_btn a:nth-child(1)::after{ content:""; display:block; width:65px; height:65px; background-image:url(../images/btn_1.png); background-size:contain; background-repeat:no-repeat; position:absolute; top:-20px; left:-30px;}
+
+/*.ans_btn 再玩一次 手指插圖*/
+.area_result .ans_btn a:nth-child(2)::after{content:""; display:block; width:65px; height:65px; background-image:url(../images/btn_2.png); background-size:contain; background-repeat:no-repeat; position:absolute; top:-20px; right:-30px; }
+
+/*小於 1200px高度*/
+@media (max-height:900px){ 
+    /*.vision 主視覺*/
+    .area_result.ans_1 .vision,.area_result.ans_2 .vision,.area_result.ans_3 .vision{width: 250px;height: 220px;}
+    /*.story 內文 */
+    .area_result.ans_1 .story,.area_result.ans_2 .story,.area_result.ans_3 .story {width: 295px;height: 116px;}
+    /*.title2 紫色標語*/
+    .area_result.ans_1 .title2,.area_result.ans_2 .title2,.area_result.ans_3 .title2{width: 220px;height: 88px;}
+    .area_result .ans_btn{margin-bottom: 60px;}
+    /*footer*/
+    .footer{ height:6vh; }
+    .footer img{ max-width:160px;}
+
+}
+
+/*414px*/
+@media only screen and (max-width:414px){
+    /*大標*/
+    .area_result.ans_1 .title, .area_result.ans_2 .title, .area_result.ans_3 .title{width:200px; height:50px;}
+    /*.vision 主視覺*/
+    .area_result.ans_1 .vision,.area_result.ans_2 .vision,.area_result.ans_3 .vision{ width: 200px;height: 180px;}
+}
+
